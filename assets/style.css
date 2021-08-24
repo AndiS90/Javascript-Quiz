@@ -20,7 +20,7 @@ background-color: rgb(71, 96, 114);
 color: rgb(238, 238, 238);
 }
 
-.timer{
+.timebox{
 margin: auto;
 margin-top: 10px;
 padding: 10px;
@@ -63,17 +63,12 @@ color:rgb(6, 6, 48);
 
 
 .scores{
-display: flexbox;
 margin: auto;
-text-align: center;
 background-color: rgb(84, 140, 168);
 color: rgb(238, 238, 238);
 padding-bottom: 25px;
 padding-top:5px;
+padding-left: 8vw;
 width: 40vw;
 }
 
-.scores ol{
-flex-flow:column;
-justify-items: center;
-}
