@@ -1,9 +1,10 @@
 var timeElmnt = document.querySelector(".timer");
-var answerAElmnt = document.querySelector("#answera");
-var answerBElmnt = document.querySelector("#answerb");
-var answerCElmnt = document.querySelector("#answerc");
-var answerDElmnt = document.querySelector("#answerd");
+var answerAElmnt = document.querySelector("#submitA");
+var answerBElmnt = document.querySelector("#submitB");
+var answerCElmnt = document.querySelector("#submitC");
+var answerDElmnt = document.querySelector("#submitD");
 var questionElmnt = document.querySelector("#qContent");
+var ansBoxElmnt = document.querySelector(".answerbox");
 var answerboxArray = [answerAElmnt, answerBElmnt, answerCElmnt, answerDElmnt];
 var hs1Elmnt = document.querySelector("#hs1");
 var hs2Elmnt = document.querySelector("#hs2");
@@ -12,17 +13,16 @@ var hs4Elmnt = document.querySelector("#hs4");
 var hs5Elmnt = document.querySelector("#hs5");
 var startButton = document.querySelector("#startbutton");
 var secondsLeft;
-var youWin = false;
+var isCorrect = false;
+// var i=0;
 
-var questionArray = [question1, question2, question3, question4, question5]
 
 var question1 = {
     problem: "Inside which HTML element do we put the JavaScript?",
     solution: "<script>",
     wrong1: "<javascript>",
     wrong2: "<scripting>",
-    wrong3: "<js>",
-    
+    wrong3: "<js>"
 };
 
 var question2 = {
@@ -30,7 +30,7 @@ var question2 = {
     solution: "alert(\"Hello World\"); ",
     wrong1: "msg(\"Hello World\");",
     wrong2: "msgBox(\"Hello World\");",
-    wrong3: "alertBox(\"Hello World\");"
+    wrong3: "alertBox(\"Hello World\");",
 
 };
 
@@ -39,7 +39,7 @@ var question3 = {
     solution: "if (i != 5)",
     wrong1: "if (i <> 5)",
     wrong2: "if i =! 5 then",
-    wrong3: "if i <> 5"
+    wrong3: "if i <> 5",
 };
 
 var question4 = {
@@ -47,7 +47,7 @@ var question4 = {
     solution: "for (i = 0; i <= 5; i++) ",
     wrong1: "for (i = 0; i <= 5)",
     wrong2: "for i = 1 to 5",
-    wrong3: "for (i <= 5; i++)"
+    wrong3: "for (i <= 5; i++)",
 };
 
 
@@ -56,8 +56,11 @@ var question5 = {
     solution: "= ",
     wrong1: "*",
     wrong2: "-",
-    wrong3: "+"
+    wrong3: "+",
+    
 };
+
+var questionArray = [question1, question2, question3, question4, question5];
 
 function setTime() {
     // Sets interval in variable
@@ -106,17 +109,36 @@ function startGame() {
 
 }
 
+
 // Attach event listener to start button to call startGame function on click
 startButton.addEventListener("click", startGame);
 
 function renderQuestions(){
+   var i=0;
+  while ( i < questionArray.length){
+    var chosenQ = questionArray[i];
+  questionElmnt.textContent= chosenQ.problem;
+  
+  answerArray= [chosenQ.solution, chosenQ.wrong1, chosenQ.wrong2, chosenQ.wrong3];
+   shuffle(answerArray);
 
+    for (j=0; j< answerArray.length; j++){
+  answerboxArray[j].textContent = answerArray[j];
+    }  
 
-  // for (var i = 0; i < answerboxArray.length; i++) {
-  //   answerboxArray[i].textContent =;
+ 
+ 
   }
-}
 
 
+}  
 
+ansBoxElmnt.addEventListener("click", renderQuestions(i++));
+
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
