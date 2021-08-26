@@ -6,6 +6,7 @@ var answerDElmnt = document.querySelector("#submitD");
 var questionElmnt = document.querySelector("#qContent");
 var ansBoxElmnt = document.querySelector(".answerbox");
 var answerboxArray = [answerAElmnt, answerBElmnt, answerCElmnt, answerDElmnt];
+var verifyElmnt = document.querySelector(".verification");
 var hs1Elmnt = document.querySelector("#hs1");
 var hs2Elmnt = document.querySelector("#hs2");
 var hs3Elmnt = document.querySelector("#hs3");
@@ -14,6 +15,9 @@ var hs5Elmnt = document.querySelector("#hs5");
 var startButton = document.querySelector("#startbutton");
 var secondsLeft;
 var isCorrect = false;
+var youWin = false;
+var score=0;
+var chosenQ = [];
 // var i=0;
 
 
@@ -112,11 +116,10 @@ function startGame() {
 
 // Attach event listener to start button to call startGame function on click
 startButton.addEventListener("click", startGame);
-
-function renderQuestions(){
-   var i=0;
-  while ( i < questionArray.length){
-    var chosenQ = questionArray[i];
+ 
+function renderQuestions(){ 
+    
+    chosenQ = questionArray.shift();
   questionElmnt.textContent= chosenQ.problem;
   
   answerArray= [chosenQ.solution, chosenQ.wrong1, chosenQ.wrong2, chosenQ.wrong3];
@@ -125,16 +128,8 @@ function renderQuestions(){
     for (j=0; j< answerArray.length; j++){
   answerboxArray[j].textContent = answerArray[j];
     }  
-
- 
- 
-  }
-
-
-}  
-
-ansBoxElmnt.addEventListener("click", renderQuestions(i++));
-
+   }
+  
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -142,3 +137,23 @@ function shuffle(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
+function checkCorrect(event){
+  event.stopPropagation()
+  var buttonpush= event.currentTarget;
+  console.log(buttonpush.textContent);
+
+  if (buttonpush.textContent === chosenQ.solution){
+    score += 10;
+    verifyElmnt.textContent = "Correct! Now score = " + score;
+    }else{
+      score -= 5;
+      verifyElmnt.textContent = "Nope. Now score = " + score;
+    }
+}
+
+
+
+answerboxArray.forEach(item => item.addEventListener("click", checkCorrect));
+
+answerboxArray.forEach(item => item.addEventListener("click", renderQuestions));
