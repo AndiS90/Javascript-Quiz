@@ -13,7 +13,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
     display: flex;
     flex-flow: row wrap;
     margin: 0 px;

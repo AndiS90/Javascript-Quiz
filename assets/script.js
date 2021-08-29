@@ -83,7 +83,7 @@ function init() {
 
 //set time interval and a basic win and lose condition
 function setTime() {
-  // Sets interval in variable
+  
   var timerInterval = setInterval(function () {
     secondsLeft--;
     var pluralChar = secondsLeft > 1 ? "s" : "";
@@ -98,7 +98,7 @@ function setTime() {
     if (secondsLeft === 0) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
-      // Calls function to create and append image
+      // Calls function to display a "sorry bout losing" message
       sendMessage();
 
 
@@ -186,7 +186,7 @@ function shuffle(array) {
   }
 }
 
-//checks if the button pressed is the correct answer and either increases and decreases
+//checks if the button pressed is the correct answer and either increases or decreases
 //score or time accordingly
 function checkCorrect(event) {
   event.stopPropagation();
