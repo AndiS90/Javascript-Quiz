@@ -1,8 +1,23 @@
+:root{
+    --yale-blue: #28497Bff;
+    --fandango: #A74588ff;
+    --middle-blue-purple: #8B69B6ff;
+    --pink-lace: #F2D4F3ff;
+    --mountbatten-pink: #8D7F8Eff;
+    --french-mauve: #D77ECFff;
+    --cadet-blue: #54ABB6ff;
+}
+
 
 body { 
-display: flex column;
+background-repeat:no-repeat;
+background-attachment: fixed;
+background-size: cover;
+
+display: flex;
+flex-flow: row wrap;
 margin:0 px;
-background-color: rgb(51, 66, 87);
+background-color: var(--middle-blue-purple);
 }
 
 ul {
@@ -18,8 +33,9 @@ header {
 margin: auto;
 padding: 10px;
 text-align: center;
-background-color: rgb(71, 96, 114);
-color: rgb(238, 238, 238);
+background-color: var( --middle-blue-purple);
+color: white;
+width:100vw;
 }
 
 .timebox{
@@ -27,22 +43,23 @@ margin: auto;
 margin-top: 10px;
 padding: 10px;
 text-align: center;
-background-color: rgb(84, 140, 168);
-color: rgb(238, 238, 238);
+background-color: var(--yale-blue);
+color: white;
+width: 100vw;
 
 }
 
+
+
 .qcontainer{
-/* display:flexbox;
-flex-flow: column wrap; */
 margin: auto;
 margin-top:50px;
 margin-bottom: 50px;
 padding:25px;
-box-shadow: 0 4px 8px 0 rgba(231, 231, 186, 0.89);
+box-shadow: 0 4px 8px 0 rgba(120, 220, 233, 0.89);
 /* transition: 0.3s; */
-width: 60vw;
-background-color: rgb(71, 96, 114);
+width: 40vw;
+background-color: var(--french-mauve);
 
 }
 
@@ -52,33 +69,36 @@ padding: 5px;
 
 .question{
     font-size: 1.5em;
-    color: rgb(238, 238, 238);
+    color: white;
     text-align: center;
     margin-bottom: 20px;
 }
 
 
 .answerbox{
-background-color: rgb(238, 238, 238);
-color:rgb(6, 6, 48);
+background-color:var(--pink-lace);
+color:var(--middle-blue-purple);
 }
 
 
 .scores{
 margin: auto;
-background-color: rgb(84, 140, 168);
+background-color: var(--cadet-blue);
 color: rgb(238, 238, 238);
 padding-bottom: 25px;
 padding-top:5px;
 padding-left: 8vw;
-width: 40vw;
+width: 20vw;
+box-shadow: 0 4px 8px 0 rgba(253, 134, 237, 0.89);
+
 }
 
 .qbutton{
 text-align: center;
 font-weight: bold;
-background-color: rgb(223, 222, 222);
-border:0.1em solid #09134d;
+background-color: var(--fandango);
+color:white;
+border:0.1em solid var(--french-mauve);
 border-radius:0.2em;
  
 transition: all 0.2s ease-in-out;
@@ -86,8 +106,8 @@ transition: all 0.2s ease-in-out;
 
 .qbutton:hover{
     color: rgb(238, 238, 238);
-    background-color:rgb(6, 6, 48);
-    box-shadow: 0 0 10px 0 #646985 inset, 0 0 10px 4px #676c86;
+    background-color:var(--cadet-blue);
+    box-shadow: 0 0 10px 0 #690761 inset, 0 0 10px 4px #c926c9;
 }
 
  
@@ -98,8 +118,9 @@ margin-top: 15px;
 margin-right: 15px;
 text-align: center;
 padding: .7em;
-background-color: rgb(223, 222, 222);
-border:0.1em solid #09134d;
+background-color: var( --middle-blue-purple);
+color:white;
+border:0.1em solid #3a0836;
 border-radius:0.2em;
 transition: all 0.2s;
 float:right;
