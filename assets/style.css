@@ -132,3 +132,20 @@ header {
     float: right;
     width: 6em;
 }
+
+@media screen and (max-width: 768px) {
+   body {    
+    display: flex;
+    flex-flow: column wrap;
+   }
+
+  .qcontainer{
+
+    width: 70vw;
+  }
+
+  .scores{
+    width: 50vw;
+  }
+
+}
