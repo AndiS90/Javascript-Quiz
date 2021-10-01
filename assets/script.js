@@ -140,7 +140,7 @@ function getHighScores() {
     }
   } else {
     var hsArray = [{
-      highScore: 01,
+      highScore: 00,
       initials: "AAA",
     }, {
       highScore: 00,
